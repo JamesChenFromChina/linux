@@ -214,6 +214,8 @@ int kthread_stop(struct task_struct *k)
 }
 EXPORT_SYMBOL(kthread_stop);
 
+/*@viewer:chenpeng The routine of kernel thread kthreadd
+  runs that function to create other kernel threads */
 int kthreadd(void *unused)
 {
 	struct task_struct *tsk = current;
