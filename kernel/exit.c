@@ -142,6 +142,8 @@ static void delayed_put_task_struct(struct rcu_head *rhp)
 	put_task_struct(container_of(rhp, struct task_struct, rcu));
 }
 
+/*@viewer:chenpeng release resources except what released when call do_exit()
+ such as kernel call stack, task_info, task_struct etc.*/
 void release_task(struct task_struct * p)
 {
 	struct task_struct *leader;
@@ -768,7 +770,7 @@ static void exit_notify(struct task_struct *tsk)
 	/*
 	 * This does two things:
 	 *
-  	 * A.  Make init inherit all the child processes
+   * A.  Make init inherit all the child processes
 	 * B.  Check to see if any process groups have become orphaned
 	 *	as a result of our exiting, and if they have any stopped
 	 *	jobs, send them a SIGHUP and then a SIGCONT.  (POSIX 3.2.2.2)
@@ -907,6 +909,7 @@ static inline void exit_child_reaper(struct task_struct *tsk)
 	zap_pid_ns_processes(tsk->nsproxy->pid_ns);
 }
 
+/*@viewer:chenpeng Exiting a kernel thread. */
 fastcall NORET_TYPE void do_exit(long code)
 {
 	struct task_struct *tsk = current;

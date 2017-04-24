@@ -50,5 +50,10 @@ series
 # cscope files
 cscope.*
 
+# gtags files
+GPATH
+GTAGS
+GRTAGS
+
 *.orig
 *.rej
