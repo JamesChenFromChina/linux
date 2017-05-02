@@ -226,6 +226,7 @@ static ssize_t copy_event_to_user(struct fsnotify_group *group,
 	return event_size;
 }
 
+/* @viewer:chenpeng a example of wait queue usage*/
 static ssize_t inotify_read(struct file *file, char __user *buf,
 			    size_t count, loff_t *pos)
 {
@@ -239,6 +240,7 @@ static ssize_t inotify_read(struct file *file, char __user *buf,
 	group = file->private_data;
 
 	while (1) {
+    /* @viewer:chenpeng add current task that store in the wait object to waitting group that hung into the file struct.*/
 		prepare_to_wait(&group->notification_waitq, &wait, TASK_INTERRUPTIBLE);
 
 		mutex_lock(&group->notification_mutex);
