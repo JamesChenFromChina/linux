@@ -237,6 +237,7 @@ init_size:		.long INIT_SIZE		# kernel initialization size
 
 # End of setup header #####################################################
 
+  # @viewer:chenpeng The entry of Assembly Code.
 	.section ".entrytext", "ax"
 start_of_setup:
 #ifdef SAFE_RESET_DISK_CONTROLLER

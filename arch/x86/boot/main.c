@@ -125,6 +125,7 @@ static void init_heap(void)
 	}
 }
 
+/* @viewer:chenpeng The C entry of Kernel*/
 void main(void)
 {
 	/* First, copy the boot header into the "zeropage" */
