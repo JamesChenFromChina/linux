@@ -509,12 +509,15 @@ __update_curr(struct cfs_rq *cfs_rq, struct sched_entity *curr,
 
 	curr->sum_exec_runtime += delta_exec;
 	schedstat_add(cfs_rq, exec_clock, delta_exec);
+
+  /* @viewer:chenpeng calculate the virtually run time for CFS, and add it to curr->vruntime*/
 	delta_exec_weighted = calc_delta_fair(delta_exec, curr);
 
 	curr->vruntime += delta_exec_weighted;
 	update_min_vruntime(cfs_rq);
 }
 
+/* @viewer:chenpeng update vruntime for current thread.*/
 static void update_curr(struct cfs_rq *cfs_rq)
 {
 	struct sched_entity *curr = cfs_rq->curr;
