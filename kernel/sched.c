@@ -2478,6 +2478,8 @@ out_activate:
 
 out_running:
 	trace_sched_wakeup(rq, p, success);
+
+  /* @viewer:chenpeng Call check_preempt_wakeup() in sched_fair.c here.*/
 	check_preempt_curr(rq, p, wake_flags);
 
 	p->state = TASK_RUNNING;
