@@ -64,6 +64,7 @@
 #endif
 	.endm
 
+/* @viewer:chenpeng The implement of copy_to_user() and copy_from_user() */
 /* Standard copy_to_user with segment limit checking */
 ENTRY(_copy_to_user)
 	CFI_STARTPROC
