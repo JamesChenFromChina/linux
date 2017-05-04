@@ -249,6 +249,7 @@ __copy_from_user (void *to, const void __user *from, unsigned long count)
 	return __copy_user((__force void __user *) to, from, count);
 }
 
+/* @viewer:chenpeng The implement of copy_to_user() and copy_from_user() */
 #define __copy_to_user_inatomic		__copy_to_user
 #define __copy_from_user_inatomic	__copy_from_user
 #define copy_to_user(to, from, n)							\
