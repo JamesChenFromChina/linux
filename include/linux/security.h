@@ -1925,6 +1925,8 @@ static inline void security_free_mnt_opts(struct security_mnt_opts *opts)
 {
 }
 
+/* @viewer:chenpeng Default capabilities functionality */
+
 /*
  * This is the default capabilities functionality.  Most of these functions
  * are just stubbed out, but a few must call the proper capable code.
